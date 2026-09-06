@@ -21,7 +21,7 @@ function errorHandler(err, req, res, next) {
   // Log only the message and code server-side; never log request bodies
   // (which could contain resume text or job descriptions).
   console.error(`[error] ${req.method} ${req.path} -> ${statusCode}: ${err.message}`);
-
+  console.log(err);
   const payload = {
     error: statusCode === 500 ? "Something went wrong. Please try again." : err.message,
   };
